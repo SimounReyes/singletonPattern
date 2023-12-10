@@ -45,9 +45,9 @@ public class QueuingSystem {
         }
     }
 
-    public synchronized boolean goToDesk(int deskIndex) {
+    public synchronized boolean goToDesk(int deskPosition) {
         if (!queue.isEmpty()) {
-            nomOfHelpDesks[deskIndex] = queue.remove(0);
+            nomOfHelpDesks[deskPosition] = queue.remove(0);
             return true;
         }
         return false;
@@ -78,25 +78,16 @@ public class QueuingSystem {
             queue.remove(numStr);
             return true;
         }
-
         return false;
     }
 
     public synchronized void currentStatus() {
         System.out.println("Centralized Queuing System for Pag-ibig Office\n" +
                 "-------------------------------------------------------------------\n\nON QUEUE:");
-       //StringBuilder status = new StringBuilder("Centralized Queuing System for Pag-ibig Office\n" +
-               // "-------------------------------------------------------------------\n\nON QUEUE:");
+
         System.out.println("\n1st Help Desk: " + nomOfHelpDesks[0] +
                 "\n2nd Help Desk: " + (nomOfHelpDesks[1]+
                 "\n3rd Help Desk: " + nomOfHelpDesks[2]+
                 "\n\nOTHER QUEUES: " +String.join(" ", queue) +"\n" ));
-
-           /* status.append("\n1st Help Desk: ").append(nomOfHelpDesks[0]);
-            status.append("\n2nd Help Desk: ").append(nomOfHelpDesks[1]);
-            status.append("\n3rd Help Desk: ").append(nomOfHelpDesks[2]);*/
-
-        /*status.append("\n\nOTHER QUEUES: ").append(String.join(" ", queue)).append("\n");
-        return status.toString();*/
     }
 }
