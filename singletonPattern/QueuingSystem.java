@@ -54,17 +54,17 @@ public class QueuingSystem {
     }
 
     public synchronized List<Integer> checkAvailability() {
-        List<Integer> availables = new LinkedList<>();
+        List<Integer> available = new LinkedList<>();
         for (int i = 0; i < nomOfHelpDesks.length; i++) {
             if (nomOfHelpDesks[i].equals("")) {
-                availables.add(i);
+                available.add(i);
             }
         }
-        return availables;
+        return available;
     }
 
-    public synchronized boolean resetingQNumber(int queueNumber) {
-        String numStr = String.valueOf(queueNumber);
+    public synchronized boolean resetingQNumber(int qNumber) {
+        String numStr = String.valueOf(qNumber);
 
         for (int i = 0; i < nomOfHelpDesks.length; i++) {
             if (nomOfHelpDesks[i].equals(numStr)) {
